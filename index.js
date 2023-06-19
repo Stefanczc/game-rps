@@ -1,8 +1,9 @@
-// de prin DOM
+// constante de prin DOM 
 
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
 const scissorsBtn = document.getElementById('scissorsBtn');
+const reset = document.getElementById('reset');
 
 // alegeri jucatori
 
@@ -13,6 +14,12 @@ let aiOption = document.getElementById('aiOption');
 
 let result = document.getElementById('resultDisplayedTxt');
 
+// loc pentru scor din DOM
+
+let humanScoreDisplay = document.getElementById('humanScore');
+let aiScoreDisplay = document.getElementById('aiScore');
+let finalMessage = document.getElementById('finalMessage');
+
 // variabile alegeri
 
 let personalWeapon = '';
@@ -21,6 +28,11 @@ let computerWeaponRandom = '';
 // lista de variante
 
 const arrayWeapons = ['rock', 'paper', 'scissors'];
+
+// variabile scor
+
+let humanScore = 0;
+let aiScore = 0;
 
 
 // butoane cu logica + stilizari 
@@ -41,6 +53,8 @@ rockBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./paper-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
+        aiScore = aiScore + 1;
+        aiScoreDisplay.innerHTML = aiScore;
     }
     else if (computerWeaponRandom === 'scissors') {
         result.innerHTML = 'YOU win';
@@ -52,6 +66,8 @@ rockBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./scissors-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
+        humanScore = humanScore + 1;
+        humanScoreDisplay.innerHTML = humanScore;
     }
     else {
         result.innerHTML = "It's a tie";
@@ -80,7 +96,8 @@ paperBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./scissors-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
-
+        aiScore = aiScore + 1;
+        aiScoreDisplay.innerHTML = aiScore;
     }
     else if (computerWeaponRandom === 'rock') {
         result.innerHTML = 'YOU win';
@@ -92,6 +109,8 @@ paperBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./rock-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
+        humanScore = humanScore + 1;
+        humanScoreDisplay.innerHTML = humanScore;
     }
     else {
         result.innerHTML = "It's a tie";
@@ -120,6 +139,8 @@ scissorsBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./rock-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
+        aiScore = aiScore + 1;
+        aiScoreDisplay.innerHTML = aiScore;
     }
     else if (computerWeaponRandom === 'paper') {
         result.innerHTML = 'YOU win';
@@ -131,6 +152,8 @@ scissorsBtn.addEventListener('click', function () {
         aiOption.style.backgroundImage = 'url(./paper-player.png)';
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
+        humanScore = humanScore + 1;
+        humanScoreDisplay.innerHTML = humanScore;
     }
     else {
         result.innerHTML = "It's a tie";
@@ -143,8 +166,23 @@ scissorsBtn.addEventListener('click', function () {
         aiOption.style.backgroundRepeat = 'no-repeat';
         aiOption.style.backgroundPosition = 'center';
     }
-})
+});
 
+reset.addEventListener('click', function () {
+    if (humanScore > aiScore) {
+        alert('Congrats, ai reusit si tu sa invingi AI-ul !');
+    }
+    else if (humanScore < aiScore) {
+        alert('Te-ai cam facut de ras, varule !');
+    }
+    else {
+        alert('Ati pierdut vremea aiurea...');
+    }
+    humanScore = 0;
+    humanScoreDisplay.innerHTML = 0;
+    aiScore = 0;
+    aiScoreDisplay.innerHTML = 0;   
+});
     
 
     
