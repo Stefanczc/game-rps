@@ -12,6 +12,11 @@ body {
     align-items: center;
     background: linear-gradient(to bottom, #ffefba, #ffffff);
 }
+body > h6 {
+    color: salmon;
+    font-size: 48px;
+    margin-bottom: 50px;
+}
 .container-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -77,6 +82,7 @@ body {
 .score > p {
     min-width: 150px;
     min-height: 100px;
+    text-align: center;
 }
 .score > p:nth-child(1) {
     color: #11998e;
