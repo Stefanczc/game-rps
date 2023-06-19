@@ -133,5 +133,14 @@ body > h6 {
         letter-spacing: 0px;
         font-size: 24px;
     }
+    body > h6 {
+        color: salmon;
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    .score {
+        column-gap: 50px;
+        font-size: 24px;
+    }
 
 }
